@@ -46,9 +46,9 @@ from flask_uploads import configure_uploads, IMAGES, UploadSet
 UPLOAD_FOLDER = os.path.abspath(r"E:/Documents/Programacion/Python/Work&Party/venv/static/upload")
 ALLOWED_EXTENSIONS = set(["png", "jpg", "jpeg"])
 
-config = pdfkit.configuration(wkhtmltopdf=r"C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe")
+#config = pdfkit.configuration(wkhtmltopdf=r"C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe")
 
-#config = pdfkit.configuration(wkhtmltopdf="./bin/wkhtmltopdf") 
+config = pdfkit.configuration(wkhtmltopdf="./bin/wkhtmltopdf") 
 #Config para heroku
 
 app = Flask(__name__)
