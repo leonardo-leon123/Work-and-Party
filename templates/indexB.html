@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>{% block tittle %} Inicio {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@3.0.1/minified/introjs.min.css"> 
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <section class="contenido-header">
+                <section class="textos-header">
+                    <h1>Hola {{ user}}, espero que tengas un excelente día</h1>
+                </section>
+                <img src="../static/img/inicio/software.svg" alt="Software Engineer">
+            </section>
+        </div>
+    </header>
+    <section class="about-us">
+        <div class="contenedor1">
+            <h2 class="titulo">¿Tienes dudas?</h2>
+            <div class="contenedor-articulo" data-aos="zoom-in-right" id="step-one">
+                <div class="articulo">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Reproducir el Tutorial</h3>
+                    <p>Si te perdiste y no sabes donde ir, podemos reproducir el tutorial de nuevo.</p>
+                    <a href="#" class="star-steps">Da click aqui</a>
+                </div>
+                <!-- <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-play-circle"></i>
+                    <h3>Tutorial en Video</h3>
+                    <p>Si eres más visual, aqui tenemos tutoriales en video de los diferentes menús que tenemos</p>
+                    <a href="#">Da click aqui</a>
+                </div> -->
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-envelope-square"></i>
+                    <h3>Soporte</h3>
+                    <p>Si tienes algun problema con la pagina, puedes mandar un correo a soporte</p>
+                    <a href="#" class="cta">Da click aqui</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ranking">
+        <div class="contenedor2" id="contenedor2">
+            <div class="leaderboard" id="leaderboard">
+                <h1>
+                  <svg class="ico-cup">
+                    <use xlink:href="#cup"></use>
+                  </svg>
+                  <i class="fas fa-trophy"></i>
+                  Correos Enviados
+                </h1>
+                <ol>
+                    {% for punto in puntos %}
+                  <li>
+                    <mark>{{ punto[0] }}</mark>
+                    <small>{{ punto[1] }}</small>
+                  </li>
+                  {% endfor %}
+                </ol>
+              </div>
+            </div>
+        </div>
+    </section>
+    <section class="modal-container">
+        <div class="modal modal-close">
+            <p class="close">X</p>
+            <img src="../static/img/inicio/mail.svg" alt="Correo">
+            <div class="modal-textos">
+                <form action="/inicio" method="post">
+                    <br>
+                    <label>De: </label>
+                    <input type="text" name="de" value= '{{ user }}' readonly>
+                    <br>
+                    <label>Para: </label>
+                    <input type="text" name="para" value="soporte@encuestas.com" readonly>
+                    <br>
+                    <textarea required rows="3" cols="20" placeholder="Coméntanos el problema que tuviste" name="asunto"></textarea>
+                    <br>
+                    <button type="submit" class="b">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="chat contenedor">
+        <section class="textos-chat">
+            <h1>Únete al chat del equipo</h1>
+            <p>En esta empresa estamos seguros de que la comunicación es importante</p>
+            <a href="#">Click aqui</a>
+        </section>
+        <img src="../static/img/inicio/Chat.svg" alt="Software Engineer" data-aos="fade-left" data-aos-duration="3000">
+        </section> -->
+    </section>
+    <footer>
+        <div class="partFooter">
+            <img  class="logo-f" src="../static/img/inicio/Logo.jpg" alt="Logo">
+        </div>
+        <div class="partFooter">
+            <h4>Dirección</h4>
+            <p>Avenida Siempre Viva123</p>
+        </div>
+        <div class="partFooter">
+            <h4>Teléfono</h4>
+            <p>+52-55-4843-0891</p>
+        </div>
+        <div class="partFooter">
+            <h4>Redes sociales</h4>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@3.0.1/minified/intro.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/18e40e3396.js" crossorigin="anonymous"></script>
+    <script src="../static/js/inicioB.js"></script>
+</body>
+</html>
+{% endblock %}

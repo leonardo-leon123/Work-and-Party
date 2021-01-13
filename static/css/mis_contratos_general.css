@@ -1,0 +1,132 @@
+
+body
+{
+    background-color: #001a2e;
+}
+
+.main-section
+{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "table preview";
+}
+.container
+{
+    position: sticky;
+    top: 10px;
+    margin: 10px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.preview
+{
+    background-color: white;
+    margin: 10px;
+    padding: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.table-title
+{
+    height: 50px;
+    text-align: center;
+}
+.table-title hr
+{
+    border: 2.5px solid #ff801f  ;
+}
+.table tr
+{
+    background-color: #ffa057;
+}
+.table th:hover
+{
+    background-color: #ff801f;
+}
+.table tr a:hover
+{
+    background: none;
+}
+.sorting_asc 
+{
+    background-color: #ff801f;
+}
+.sorting_desc
+{
+    background-color: #ff801f;
+}
+
+.titulo-contrato {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.titulo-contrato h2
+{
+    text-align: center;
+    font-size: 28px;
+}
+
+/* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #ccc;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 8px;
+  background: #0cb800;
+  width: 0%;
+}
+.tooltip
+{
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+  
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+  
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+  
+  /* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+

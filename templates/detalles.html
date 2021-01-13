@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tittle %} Detalles {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
+    <style>
+        body{
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table id="Detalle" class="display" style="width:80%">
+        <thead>
+            <tr>
+                <th>¿El evento fue lo que esperaba?</th>
+                <th>Califique el evento</th>
+                <th>¿Asistiría de nuevo a uno de nuestros eventos?</th>
+                <th>¿Nos recomendaría con amigos y/o familiares?</th>
+                <th>Comentanos que te pareció el evento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Inicia el FOR -->
+            {% for respuesta in respuestas %}
+            <tr>
+                <td>{{ respuesta[1] }}</td>
+                <td>{{ respuesta[2] }}</td>
+                <td>{{ respuesta[3] }}</td>
+                <td>{{ respuesta[4] }}</td>
+                <td>{{ respuesta[5] }}</td>
+            </tr>
+            {% endfor %}
+            <!-- Termina el FOR -->
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../static/js/eventos.js"></script>
+    <script>
+        $(document).ready(function(){
+            var table = $('#Detalle').DataTable({
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

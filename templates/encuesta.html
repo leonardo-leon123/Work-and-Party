@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/tabla.css">
+    <title>{% block tittle %} Encuestas {% endblock %}</title>
+    <script src="https://kit.fontawesome.com/a5d9d05488.js" crossorigin="anonymous"></script>
+</head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<body>
+    <table>
+        <tr>
+            <th>Evento</th>
+            <th>Sexo</th>
+            <th>¿El evento fue lo que esperaba?</th>
+            <th>Califique el evento:</th>
+            <th>¿Asistiría de nuevo a uno de nuestros eventos?</th>
+            <th>¿Nos recomendaría con amigos y/o familiares? </th>
+            <th>Comentanos que te pareció el evento</th>
+            <th>Calificación </th>
+            <th>Sentimieto</th>
+            <th></th>
+        </tr>
+        {% for encuesta in encuestas %}
+        <tr>
+            <td>{{ encuesta.1}}</td>
+            <td>{{ encuesta.2 }}</td>
+            <td>{{ encuesta.3 }}</td>
+            <td>{{ encuesta.4 }}</td>
+            <td>{{ encuesta.5 }}</td>
+            <td>{{ encuesta.6 }}</td>
+            <td>{{ encuesta.7 }}</td>
+            <td>{{ encuesta.8 }}</td>
+            <td>{{ encuesta.9 }}</td>
+            <td>  
+                <a href="/cargar/{{encuesta.0}}"><i class="far fa-check-circle" style="color:green" ></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
+{% endblock %}

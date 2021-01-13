@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Caompatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../static/css/inicio.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>{% block tittle %} Inicio {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@3.0.1/minified/introjs.min.css">
+    <!-- Add IntroJs styles -->
+    <link href="../../introjs.css" rel="stylesheet">
+
+    <!-- Add Nazanin template -->
+    <link href="../../themes/introjs-nazanin.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="inicio">
+        <div class="contenedor">
+            <section class="contenido-header">
+                <section class="textos-header">                    
+                    <div class="skewed">
+                    </div>
+                    <h1 class="saludo" >Hola {{ session.user}}, espero que tengas un excelente día</h1>
+                    
+                </section>
+                <!-- <img src="../static/img/inicio/software.svg" alt="Software Engineer"> -->
+            </section>
+        </div>
+    </header>
+    <section class="about-us">
+        <div style="height: 125px;"></div>
+        <div class="contenedor1">
+            <h2 class="titulo2">¿Estas listo/a para ganar más medallas?</h2>
+            <h3 style="text-align: center;" > Actualmente estás en: </h3>
+            <div> 
+                {%if puntos >=10 and puntos <=30%}
+                <p style="text-align: center; font-size: 30px; " > Hierro </p>                   
+                <img src="../static/img/contratos/hierro.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                {%if puntos >=30 and puntos <=50%}
+                <p style="text-align: center; font-size: 30px;" > Bronce </p>                   
+                <img src="../static/img/contratos/bronce.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                {%if puntos >=50 and puntos <=100%}
+                <p style="text-align: center; font-size: 30px;" > Plata </p>                   
+                <img src="../static/img/contratos/plata.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                {%if puntos >=100 and puntos <=200%}
+                <p style="text-align: center; font-size: 30px;" > Oro </p>                   
+                <img src="../static/img/contratos/oro.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                {%if puntos >=200 and puntos <=300%}
+                <p style="text-align: center; font-size: 30px;" > Platino </p>                   
+                <img src="../static/img/contratos/platino.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                {%if puntos >=300 and puntos <=400%}
+                <img src="../static/img/contratos/diamante.png" class="medalla-ganada" width=" 250px" alt=""> 
+                <p style="text-align: center; font-size: 30px;" > Diamante </p>                   
+                {%endif%}
+                {%if puntos >=400 and puntos <=500%}
+                <p style="text-align: center; font-size: 30px;" > Maestro </p>                   
+                <img src="../static/img/contratos/Maestro.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                {%if puntos >=500 and puntos <=100%}
+                <p style="text-align: center; font-size: 30px;" > Gran Maestro </p>                   
+                <img src="../static/img/contratos/GranMaestro.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                {%if puntos >=1000 and puntos <=20000%}
+                <p style="text-align: center; font-size: 30px;" > Retador </p>                   
+                <img src="../static/img/contratos/Retador.png" class="medalla-ganada" width=" 250px" alt=""> 
+                {%endif%}
+                
+            </div>
+            <div class="container-box">
+                <a href="/preventa" id = "step-six">
+                    <div  id="step-one" class="box">
+                        <img class="mail" src="../static/img/inicio/MailBox.svg" alt="">
+                        <b><h2>Preventa</h2></b>
+                        <div class="container-p">
+                            <p>En este apartado podrás visualizar a aquellos clientes potenciales y los que están en proceso de contratación. Podrás contactarte con ellos mediante un proceso automatizado de correos que te ahorrará tiempo.  </p>
+                        </div>
+                    </div>
+                </a>
+                <a href= "/landing">
+                    <div id="step-two" class="box">
+                        <img src="../static/img/inicio/Contract.svg" alt="">
+                        <b><h2>Contratos</h2></b>
+                        <div class="container-p">
+                            <p>¿Quieres revisar aquellos contratos que ya se realizaron? Podrás visualizarlos sin necesidad de descargar los archivos.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="/landing">
+                    <div id="step-three" class="box">
+                        <img class="data" src="../static/img/inicio/Data.svg" alt="">
+                        <b><h2>Encuestas</h2></b>
+                        <div class="container-p">
+                            <p>El evento se ha terminado, es momento de revisar como le fue a los clientes. Da click para revisar sus opiniones y visualizar que emociones se pudieron detectar en el evento mediante fotos. </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="modal-container">
+        <div class="modal modal-close">
+            <p class="close">X</p>
+            <img src="../static/img/inicio/mail.svg" alt="Correo">
+            <div class="modal-textos">
+                <form action="/inicio" method="post">
+                    <br>
+                    <label>De: </label>
+                    <input type="text" name="de" value= '{{ user }}' readonly>
+                    <br>
+                    <label>Para: </label>
+                    <input type="text" name="para" value="soporte@encuestas.com" readonly>
+                    <br>
+                    <textarea required rows="3" cols="20" placeholder="Coméntanos el problema que tuviste" name="asunto"></textarea>
+                    <br>
+                    <button type="submit" class="b">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Aqui va el RANKING -->
+    <section class="contenedor-ranking">
+        <section class="main-section">
+            <h2 class="title-rank" > ¡Genera puntos en el proceso de la generación de nuevos eventos! </h2>
+            <br>
+            <h4 class="title-rank"> Mis puntos: </h4>
+            <h4 class="title-rank" id="show-puntos" > 0 </h4>
+            <div id="step-four"class="container-medallas">
+                <input type="radio" class="radio  " name="progress" value="hierro" id="hierro" checked >
+                <label id="hierro-lbl" class="label "> Hierro </label>
+                <input type="radio" class="radio" name="progress" value="bronce" id="bronce" checked>
+                <label id="bronce-lbl" class="label  ">Bronce</label>
+                
+                <input type="radio" class="radio  " name="progress" value="plata" id="plata">
+                <label  id="plata-lbl" class="label ">Plata</label>
+                
+                
+                <input type="radio" class="radio  " name="progress" value="oro" id="oro" checked>
+                <label id="oro-lbl" class="label">Oro</label>
+                
+                
+                <input type="radio" class="radio" name="progress" value="platino" id="platino" checked>
+                <label id="platino-lbl" class="label  ">Platino</label>
+                
+                
+                <input type="radio" class="radio" name="progress" value="diamante" id="diamante" checked>
+                
+                <label id="diamante-lbl" class="label  ">Diamante</label>
+                
+                <input type="radio" class="radio" name="progress" value="maestro" id="maestro" checked>
+               
+                <label id="maestro-lbl" class="label  ">Maestro</label>
+               
+                <input type="radio" class="radio" name="progress" value="gran-maestro" id="gran-maestro"checked>                
+                <label id="gran-lbl" class="label  ">Gran Maestro</label>      
+                <input type="radio" class="radio" name="progress" value="retador" id="retador">
+                <label id="retador-lbl" class="label  ">Retador</label>          
+                <div class="progreso">
+                    <div class="progress-bar"></div>
+                </div>
+                
+            </div> 
+
+                <div id="step-five" class="container" >
+                    <div class="row">
+                        <div class="col s12">
+                            <h1 class="center-align title-rank"> Catálogo de Medallas </h1>                
+                            <div class="carousel">
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Hierro</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">10 Punto</p>
+                                    <img src="../static/img/contratos/hierro.png" alt="">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Bronce</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">30 Puntos</p>
+                                    <img src="../static/img/contratos/bronce.png" alt="">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Plata</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">50 Puntos</p>
+                                    <img src="../static/img/contratos/plata.png" alt="">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Oro</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">100 Puntos</p>
+                                    <img src="static/img/contratos/oro.png" alt="">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Platino</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">200 Puntos</p>
+                                    <img src="static/img/contratos/platino.png" alt="">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Diamante</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">300 Puntos</p>
+                                    <img src="static/img/contratos/diamante.png" alt="">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Maestro</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">400 Puntos</p>
+                                    <img src="static/img/contratos/Maestro.png" alt="">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">Gran Maestro</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">500 Puntos</p>
+                                    <img src="static/img/contratos/GranMaestro.png" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <h2 class="subtitulo">RETADOR</h2>
+                                    <div class="linea-division"></div>
+                                    <p class="sabor">1000 Puntos</p>
+                                    <img src="../static/img/contratos/Retador.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </section>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../static/js/medallas.js"></script>
+
+    <footer>
+        <div class="partFooter">
+            <img  class="logo-f" src="../static/img/inicio/Logo.jpg" alt="Logo">
+        </div>
+        <div class="partFooter">
+            <h4>Dirección</h4>
+            <p>Avenida Siempre Viva123</p>
+        </div>
+        <div class="partFooter">
+            <h4>Teléfono</h4>
+            <p>+52-55-4843-0891</p>
+        </div>
+        <div class="partFooter">
+            <h4>Redes sociales</h4>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@3.0.1/minified/intro.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/18e40e3396.js" crossorigin="anonymous"></script>
+    <script src="../static/js/inicio.js"></script>
+</body>
+</html>
+{% endblock %}

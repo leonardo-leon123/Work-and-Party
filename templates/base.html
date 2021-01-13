@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-witdth, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/loader.css">
+    <script src="https://kit.fontawesome.com/18e40e3396.js" crossorigin="anonymous"></script>
+    <title>{% block tittle %}{% endblock %}</title>
+    <link rel="icon" href="../static/img/Logo.ico">
+</head>
+<body>
+    <div class="lds-ring loader" id="loader"><div></div><div></div><div></div><div></div></div>
+    <nav class="barranav" >
+        <section class="contenedor nav">
+            <div class="logo">
+                <a href="/inicio"><img src="../static/img/inicio/Logo.jpg" alt="Logo"></a>
+            </div>
+            <ul class="menu">
+                <li><a href="/inicio">Inicio</a></li>
+                <li><a href="/preventa">Preventa</a></li>
+                <li><a href="/landing">Encuestas y Contratos</a></li>
+                <li><a href="/logout" id="logout"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </section>
+    </nav>
+    <script src="../static/js/loader.js"></script>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

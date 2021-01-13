@@ -1,0 +1,96 @@
+.hero
+{
+   text-align: center;
+   color: white;
+   font-size: 40px;
+
+}
+.hero hr 
+{
+    color: white;
+}
+#numero_de_contratos
+{
+    text-align: center;
+}
+.button
+{
+    text-align: center;
+}
+.main
+{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url("../img/contratos/write.jpg");
+    background-size: cover;
+    height: 100vh;
+    
+}
+.main-section 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    font-size: 35px;
+    padding: 20px;
+}
+.main-section h1{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+button
+{
+  background-color: #a288d2 ; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  transition: all .2s ease-in-out; 
+}
+button a
+{
+    color: white;
+    text-decoration: none;
+}
+button:hover
+{
+    transform: scale(1.1);
+}
+button a:hover, button a:active
+{
+    color: white;
+    background: none;
+
+}
+@media (max-width: 858px)
+{
+    .main-section
+    {
+        font-size: 20px;
+    }
+    button
+    {
+        padding: 5px 20px;
+        font-size: 18px;
+    }
+}
+.medallas
+{
+    background-color: black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0.753)), url("../img/contratos/gameover.jpg");
+    background-repeat: no-repeat;
+    
+}
+.medallas h1
+{
+    
+    text-align: center;
+    color: white;
+}

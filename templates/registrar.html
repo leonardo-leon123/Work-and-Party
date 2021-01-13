@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regístrate</title>
+    <link rel="stylesheet" href="../static/css/registrar.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            REGISTRO DE USUARIO
+            <a href="https://encuesta-cs.herokuapp.com/login">Volver al Log In</a>
+        </header>
+        <div class="progress-bar">
+            <div class="paso">
+                <p>Datos</p>
+                <div class="num">
+                    <span>1</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="paso">
+                <p>Información</p> 
+                <div class="num">
+                    <span>2</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="paso">
+                <p>Contacto</p>
+                <div class="num">
+                    <span>3</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="paso">
+                <p>Usuario</p>
+                <div class="num">
+                    <span>4</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+        </div>
+        <div class="form-princ">
+            <form action="/registrar" method="POST">
+                <!-- PAGINA1 -->
+                <div class="pagina movPag">
+                    <div class="titulo">Información Principal</div>
+                    <div class="campo">
+                        <div class="label">Nombres: <b class="error" id="nombres-error"></b></div>
+                        <input type="text" name="name" id="nombres" placeholder="Nombres" required pattern="[A-Za-z]+">
+                    </div>
+                    <div class="campo">
+                        <div class="label">Apellido Paterno: <b class="error" id="apellido1-error"></b></div>
+                        <input type="text" name="last_name" id="apellido1" placeholder="Apellido Paterno" required pattern="[A-Za-z]+">
+                    </div>
+                    <div class="campo">
+                        <div class="label">Apellido Materno: <b class="error" id="apellido2-error"></b></div>
+                        <input type="text" name="" id="apellido2" placeholder="Apellido Materno">
+                    </div>
+                    <div class="campo sigPag">
+                        <button>Siguiente</button>
+                    </div>
+                </div>
+                <!-- PAGINA2 -->
+                <div class="pagina">
+                    <div class="titulo">Información Secundaria</div>
+                    <div class="campo">
+                        <div class="label">Fecha de Nacimiento: <b class="error" id="fechaNac-error"></b></div>
+                        <input type="date" name="" id="fechaNac" placeholder="" max="2001-12-31" value="200-01-01" required>
+                    </div>
+                    <div class="campo">
+                        <div class="label">Sexo: <b class="error" id="sexo-error"></b></div>
+                        <select id="sexo" required>
+                            <option value="-1" disabled selected>Escoge una opción.</option>
+                            <option value="1">Femenino</option>
+                            <option value="2">Masculino</option>
+                            <option value="3">Indefinido</option>
+                        </select>
+                    </div>
+                    <div class="campo btns">
+                        <button class="volver-pag1 volver">Atrás</button>
+                        <button class="adelante-pag3 adelante">Siguiente</button>
+                    </div>
+                </div>
+                <!-- PAGINA3 -->
+                <div class="pagina">
+                    <div class="titulo">Información de Contacto</div>
+                    <div class="campo">
+                        <div class="label">Correo Electrónico:  <b class="error" id="correo-error"></b></div>
+                        <input type="email" name="email" id="correo" placeholder="Correo Electrónico" required pattern="[A-Za-z0-9_-@]+">
+                    </div>
+                    <div class="campo btns">
+                        <button class="volver-pag2 volver">Atrás</button>
+                        <button class="adelante-pag4 adelante">Siguiente</button>
+                    </div>
+                </div>
+                <!-- PAGINA4 -->
+                <div class="pagina">
+                    <div class="titulo">Información para el Inicio de Sesión</div>
+                    <div class="campo">
+                        <div class="label">Nombre de Usuario:  <b class="error" id="usuario-error"></b></div>
+                        <input type="text" name="usuario" id="usuario" placeholder="Nombre de Usuario" required pattern="[A-Za-z]+">
+                    </div>
+                    <div class="campo">
+                        <div class="label">Contraseña:  <b class="error" id="contra-error"></b></div>
+                        <input type="password" name="password" id="contra" placeholder="Contraseña" required pattern ="[A-Za-z0-9]+">
+                        <span class="ojitos" onclick="mostrarContra()">
+                            <i id="mostrar" class="fa fa-eye" title="Mostrar Contraseña"></i>
+                            <i id="ocultar" class="fa fa-eye-slash" title="Ocultar Contraseña"></i>
+                        </span>
+                    </div>
+                    <div class="campo">
+                        <div class="label">Repite la Contraseña:  <b class="error" id="contra-error"></b></div>
+                        <input type="password" name="password2" id="contra2" placeholder="Contraseña" required pattern ="[A-Za-z0-9]+">
+                        <span class="ojitos" onclick="mostrarContra2()">
+                            <i id="mostrar2" class="fa fa-eye" title="Mostrar Contraseña"></i>
+                            <i id="ocultar2" class="fa fa-eye-slash" title="Ocultar Contraseña"></i>
+                        </span>
+                    </div>
+                    <div class="campo btns">
+                        <button class="volver-pag3 volver">Atrás</button>
+                        <button type="submit" class="Fin">Finalizar</button>
+                    </div>
+
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <span>{{message}}</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                           
+
+                            {% endfor %}
+                        {% endif %}
+
+
+                    {% endwith %}
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/18e40e3396.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../static/js/registrar.js"></script>
+    <script>
+        
+        function mostrarContra(){
+            var x = document.getElementById("contra");
+            var y = document.getElementById("ocultar");
+            var z = document.getElementById("mostrar");
+            if(x.type =='password'){
+                x.type="text";
+                y.style.display="block";
+                z.style.display="none"
+            }else{
+                x.type="password";
+                y.style.display="none";
+                z.style.display="block"
+            }
+        }
+
+        function mostrarContra2(){
+            var x = document.getElementById("contra2");
+            var y = document.getElementById("ocultar2");
+            var z = document.getElementById("mostrar2");
+            if(x.type =='password'){
+                x.type="text";
+                y.style.display="block";
+                z.style.display="none"
+            }else{
+                x.type = "password";
+                y.style.display="none";
+                z.style.display="block"
+            }
+        }
+    </script>
+</body>
+</html>

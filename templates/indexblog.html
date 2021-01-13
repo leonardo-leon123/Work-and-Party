@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <script src="https://kit.fontawesome.com/18e40e3396.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@3.0.1/minified/introjs.min.css"> 
+    <script src="https://kit.fontawesome.com/18e40e3396.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/indexblog.css">
+    <link rel="icon" href="../static/img/blog.ico">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+    <!-- Header Menù -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="../templates/indexblog.html"><img src="../static/img/work&partyw.png" alt="Logo"></a>
+            </div>
+            <div class="menu" id="show-menu">
+                <nav>
+                    <ul id="step-one">
+                        <li class="menu-selected"><a href="#" class="text-menu-selected"><i class="fas fa-file-alt"></i>Inicio</a></li>
+                        <li><a href="#" class="cta"><i class="fas fa-calendar-alt"></i>¡Reserva Ya!</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Scroll Animate -->
+        <div class="scroll-line"></div>
+        <div id="icon-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <!-- Portada -->
+        <div class="container-cover">
+            <div class="container-info-cover">
+                <h1>¡Reserva en solo 5 min!</h1>
+                <p>Contesta encuestas y reserva con Sura</p>
+            </div>
+        </div>
+        <!-- Articulos -->
+        <div class="container-content">
+            <article>
+                <h1>Bienvenid@ a este espacio de comentarios</h1>
+                <p>
+                    En esta pagina puedes publicar tus fotos en los eventos que has tenido con nosotros, comentar que te ha
+                    gustado,
+                    que no te ha gustado y como podemos mejorar tu experiencia en nuestros eventos.
+                    Todo lo que pongas será usado para mejorar nuestra calidad de servicio para que cada evento que tengas
+                    con nosotros
+                    tengas una experiencia mejor que la anterior.
+                </p>
+                <p>
+                    Así que si tuviste una buena o mala experiencia con nuestro servicio te invitamos a compartirlo para así
+                    poder mejorarlo.
+                    De antemano muchas gracias, te lo agradecemos.
+                    Cada dia estamos trabajando por y para tí.
+                </p>
+                <img src="../static/img/blog/Comentarios.png" alt="">
+                <!-- Comentarios -->
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document,
+                            s = d.createElement('script');
+                        s.src = 'https://comentarios-vw3rgsom0z.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
+                        by Disqus.</a></noscript>
+                <!-- Termina Comentarios -->
+                    </article>
+            <div class="container-aside">
+                <aside>
+                    <img src="../static/img/blog/Boda.jpg" alt="">
+                    <h2>¿Planeas una boda?</h2>
+                    <p>
+                        Si estas planeando una boda pero todavia no tienes claro donde puede ser, nosotros tenemos los
+                        mejores lugares para esta ocasión especial
+                    </p>
+                    <a href="#"><button>Leer más</button></a>
+                </aside>
+                <aside>
+                    <img src="../static/img/blog/Xv.jpg" alt="">
+                    <h2>¿Lista para celebrar tus Xv Años?</h2>
+                    <p>
+                        Tenemos los mejores salones para que te la pases genial con tus amigos y amigas en tu dia especial,
+                        tenemos buenas promociones y una selección de música variada.
+                    </p>
+                    <a href="#"><button>Leer más</button></a>
+                </aside>
+                <aside>
+                    <img src="../static/img/blog/Auditorio.jpg" alt="">
+                    <h2>¿Quieres dar un evento?</h2>
+                    <p>
+                        Si ya tienes todo preparado para tu evento pero te quedaron mal con el lugar, nosotros te ayudamos,
+                        tenemos auditorios donde tus invitados se sentirán consentidos
+                    </p>
+                    <a href="#"><button>Leer más</button></a>
+                </aside>
+            </div>
+        </div>
+        <div class="container-chat" id="move-chat">
+            <a id="MChat">
+                <img src="../static/img/blog/chat.jpg" title="Hablar con Sura" alt="">
+            </a>
+            <div class="chat">
+                <iframe src='https://webchat.botframework.com/embed/BotDespachadorLB?s=fCQyoWWvBbw.Lpk6-ympVn25ulX2Xw5BJwDBW0yxGN1nJSGJHXDevRY'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal-container">
+            <div class="modal modal-close">
+                <p class="close">X</p>
+                <div class="container">
+                    <form class="Part1" id="Form1">
+                                <h1>¡Hola que tal!</h1>
+                                <h1>¿Cómo te llamas?</h1>
+                                <input class="p1" type="text" id="name" placeholder="Escribe tu Nombre" required>
+                                <input class="p2" type="text" id="apellido" placeholder="Escribe tu Apellido" required>
+                                <div class="btn-box">
+                                    <button type="button" id="Next1">Siguiente</button>
+                                </div>
+                    </form>
+                    <form id="Form2">
+                                <h2>Veo que te interesa hacer un evento </h2>
+                                <h2>Dime ¿Qué tipo de evento te interesa hacer?</h2>
+                                <div class="container-box">
+                                    <div class="box box1">
+                                        <img src="../static/img/blog/Boda.svg" alt="">
+                                        <h2>Una Boda</h2>
+                                        <div class="container-p">
+                                            <p>¿Estás list@ para casarte?, nosotros somos tu mejor opción</p>
+                                        </div>
+                                        <div class="check">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="box box2">
+                                        <img src="../static/img/blog/XvAños.svg" alt="">
+                                        <h2>Unos XV Años</h2>
+                                        <div class="container-p">
+                                            <p>Ya casi cumples 15 años, reserva con nosotros y haremos que tu evento sea inolvidable</p>
+                                        </div>
+                                        <div class="check">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="box box3">
+                                        <img src="../static/img/blog/EventosTec.svg" alt="">
+                                        <h2>Un Evento Tecnológico</h2>
+                                        <div class="container-p">
+                                            <p>Si quieres dar un evento con excelentes panelistas, nosotros somos tu mejor opción</p>
+                                        </div>
+                                        <div class="check">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="box box4">
+                                        <img src="../static/img/blog/Otros.svg" alt="">
+                                        <h2>Otro</h2>
+                                        <div class="container-p">
+                                            <p>Si el evento que necesitas no aparece aquí, seleccioname y más adelante nos comentará que tipo de evento quiere hacer</p>
+                                        </div>
+                                        <div class="check">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-box" id="btn-box">
+                                    <button type="button" id="Back1">Atrás</button>
+                                    <button type="button" id="Next3">Siguiente</button>
+                                </div>
+                    </form>
+                    <form class="Part2" id="Form3">
+                                <h2>¿En que fecha planeas hacer tu evento?</h2>
+                                <input class="p3" type="date" id="fecha" required>
+                                <h2>Detallanos que es lo que necesitas</h2>
+                                <input class="p4" type="email" id="correo" placeholder="Correo electrónico"><br>
+                                <textarea required rows="10" cols="50" placeholder="Coméntanos que necesitas para tu evento" id="asunto"></textarea>
+                                <div class="btn-box">
+                                    <button type="button" id="Back2">Atrás</button>
+                                    <button type="button" id="Fin">Finalizar</button>
+                                </div>
+                    </form>
+                </div> 
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="container-footer">
+            <footer>
+                <div class="logo-footer">
+                    <img src="../static/img/blog/DreamTeam-logo.png" alt="">
+                </div>
+                <div class="redes-footer">
+                    <a href="#"><i class="fab fa-facebook-f icon-redes-footer"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g icon-redes-footer"></i></a>
+                    <a href="#"><i class="fab fa-instagram icon-redes-footer"></i></a>
+                </div>
+                <hr>
+                <h4>© 2020 DreamTeam - Todos los Derechos Reservados</h4>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@3.0.1/minified/intro.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../static/js/indexblog.js"></script>
+</body>
+
+</html>

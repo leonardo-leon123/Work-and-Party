@@ -1,0 +1,10 @@
+body{
+    padding-top: 100px;
+}
+a{
+    text-decoration: none;
+}
+.btnPlantilla,
+.btnDetalle{
+    cursor: pointer;
+}

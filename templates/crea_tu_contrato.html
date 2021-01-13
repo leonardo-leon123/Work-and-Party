@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea Tu Contrato General</title>
+    <link rel="stylesheet" href="../static/css/crea_tu_contrato.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="body" >     
+        <div class="container">
+            {%if bandera%}
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    {{error}}
+            </div> 
+            {%endif%}
+            <header class="form-title" >
+                <h1>Crea el contrato <strong> <br>  PARA TU EVENTO </strong> </h1>
+            </header>
+            <div class="progress-bar">
+                <div class="step">
+                    <p>INE</p>
+                    <div class="bullet">
+                        <span>1</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <!-- <div class="step">
+                    <p>INE 2</p>
+                    <div class="bullet">
+                        <span>2</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div> -->
+                <div class="step">
+                    <p>Domicilio</p>
+                    <div class="bullet">
+                        <span>2</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>Información</p>
+                    <div class="bullet">
+                        <span>3</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+            </div>
+            <div class="form-outer">
+                <form method="POST" enctype="multipart/form-data" target="_blank">
+                    <div class="page slidepage">
+                        <div class="title">PASO 1: INE</div>
+                        <div style="height: 20px;"> </div>
+                        <div class="field">
+                            <div class="label">Sube la foto del INE del responsable del contrato</div>
+                            {{form.csrf_token}}
+                            {{form.image(class_="examinar", onchange="readURL(this)")}}                            
+                        </div>
+                        <div class="img-preview">
+                            <div class="label">Vista previa de tu Imagen</div>
+                            <img id="blah" src="http://placehold.it/180" class=img-preview alt="your image" />
+                        </div>
+                        <div class="field nextBtn">
+                            <button type="button">Next</button>
+                        </div>
+
+                    </div>
+                    <!-- <div class="page">
+                        <div class="title">PASO 2: INE 2</div>
+                        <div class="field">
+                            <div class="label">Sube la foto del INE del Conyugué 2</div>
+                            {{form.image2(class_="examinar", onchange="readURL2(this)")}} 
+                        </div>
+                        <div class="img-preview">
+                            <div class="label">Vista previa de tu Imagen</div>
+                            <img id="blah2" src="http://placehold.it/180" class=img-preview alt="your image" />
+                        </div>
+                        <div class="field btns">
+                            <button type="button" class="prev-1 prev">Previous</button>
+                            <button  type="button" class="next-1 next">Next</button>
+                        </div>
+                    </div> -->
+
+                    
+                    <div class="page">
+                        <div class="title">PASO 2: Comprobante de Domicilio</div>
+                        <div style="height: 5px;"></div>
+                        <div class="field">
+                            <div class="label">Recibo de luz, Agua, Teléfono o Gas</div>
+                            {{form.image3(class_="examinar", onchange="readURL3(this)")}}
+                        </div>
+                        <div class="img-preview">
+                            <div class="label">Vista previa de tu Imagen</div>
+                            <img id="blah3" src="http://placehold.it/180" class=img-preview alt="your image" />
+                        </div>
+                        <div style="height: 5px;" ></div>
+                        <div class="field btns">
+                            <button type="button" class="prev-2 prev">Previous</button>
+                            
+                            <button type="button" class="next-2 next">Next</button>
+                            
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="title">PASO 3: Información adicional </div>
+                        <div style="height: 40px;" ></div>
+                        <div class="field">
+                            <div class="label">Lugar del Evento:</div>
+                            <div class="custom-select" style="width:100%;">
+                                <select name="lc">
+                                  <option value="No eligió Salón">Elige tu salón de fiestas:</option>
+                                  {%for lugar in lugar_salon%}
+                                  <option value="{{lugar.1}}"> {{lugar.1}} </option>
+                                  {%endfor%}
+                                </select>
+                              </div>
+                        </div>
+                        <div style="height: 10px;"></div>
+                        <div class="field">
+                            <div class="label">Fecha del evento</div>
+                            <input type="date" id="input2" name="date"  autocomplete="off" required>
+                        </div>
+                        <div style="height: 10px;"></div>
+                        <div class="field">
+                            <div class="label">Confirma Tu Correo</div>
+                            <input type="email" id="input2" name="email"  autocomplete="off" required>
+                        </div>
+                        <div style="height: 10px;"></div>
+                        <div class="field btns">                           
+                            <button type="button" class="prev-3 prev">Previous</button>
+                            <button class="upload-btn" id="submit" type="submit">Crear Contrato</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="../static/js/multi-step-form-script-general.js"></script>
+        <script src="../static/js/bodas-upload.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js" integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag==" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js" integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag==" crossorigin="anonymous"></script>
+</body>
+</html>

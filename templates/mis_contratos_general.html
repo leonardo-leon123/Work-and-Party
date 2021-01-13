@@ -1,0 +1,174 @@
+{% extends "base2.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/mis_contratos_boda.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js" integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag==" crossorigin="anonymous"></script>
+    <title>Mis Contratos</title>
+</head>
+<header>
+</header>
+<body>
+    
+    <div class="main-section">
+        <div class="mis_contratos_tabla" >
+            <div class="container">
+                <div class="table-title">
+                    {%if EventoTec%}
+                    <h1> Tabla de Contratos de <strong> EVENTOS TEC </strong> </h1>
+                    {%endif%}
+                    {%if EventoXV%}
+                    <h1> Tabla de Contratos de <strong> XV'S </strong> </h1>
+                    {%endif%}
+                    {%if EventoOtro%}
+                    <h1> Tabla de Contratos de <strong> OTROS EVENTOS </strong> </h1>
+                    {%endif%}
+                    <hr>                    
+                </div>
+                <div style="height: 20px;" ></div>
+                <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">        
+                                <table id="mis_contratos" class="table display compact" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th hidden >ID</th>
+                                        <th>Nombre del Responsable</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for contrato in SelectContrato%}
+                                    <tr>
+                                        <td hidden >{{contrato.0}}</td>
+                                        <td> {{contrato.1}}</td>
+                                        <td>
+                                            <a type="button" class="BtnPreview">
+                                                <div class="tooltip">
+                                                    <img src="../static/img/contratos/preview.svg" width="30px" alt="preview">
+                                                  <span class="tooltiptext">Vista Previa</span>
+                                                </div>
+                                            </a> 
+                                            <a type="button" class="BtnVer">
+                                                <div class="tooltip">
+                                                    <img src="../static/img/contratos/check.svg" width="30px" class="tooltip-svg" alt="Verificar Contrato">
+                                                <span class="tooltiptext">Verificar contrato</span>
+                                                </div>
+                                            </a>
+                                        </td>                                      
+                                        
+                                    </tr>
+                                    {%endfor%}
+                                </tbody>        
+                               </table>                  
+                            </div>
+                        </div>
+                </div>  
+            </div>
+        </div>
+        <div class="preview">           
+            <div class="elige-contrato">
+                <h2 style="font-size: 35px;" > Elige un contrato del lado izquiedo</h2>
+                <div style="width: 400px;"><svg id="monkey" viewBox="0 0 490 525"><path fill="#6A1B9A" d="M325 85c1 12-1 25-5 38-8 29-31 52-60 61-26 8-54 14-81 18-37 6-26-37-38-72l-4-4c0-17-9-33 4-37l33-4c9-2 9-21 11-30 1-7 3-14 5-21 8-28 40-42 68-29 18 9 36 19 50 32 13 11 16 31 17 48z"></path><path fill="none" stroke="#6A1B9A" stroke-width="24" stroke-linecap="round" stroke-miterlimit="10" d="M431 232c3 15 21 19 34 11 15-9 14-30 5-43-12-17-38-25-59-10-23 18-27 53-21 97s1 92-63 108"></path><path fill="#6A1B9A" d="M284 158c35 40 63 85 86 133 24 52-6 113-62 123-2 0-4 1-6 1-53 9-101-33-101-87V188l83-30z"></path><path fill="#F7CB4D" d="M95 152c-3-24 13-57 46-64l27-5c9-2 16-19 17-28l3-15 20-3c44 14 42 55 18 69 22 0 39 26 32 53-5 18-20 32-39 36-13 3-26 5-40 8-50 8-80-14-84-51z"></path><path fill="#6A1B9A" d="M367 392c-21 18-77 70-25 119h-61c-27-29-32-69 1-111l85-8z"></path><path fill="#6A1B9A" d="M289 399c-21 18-84 62-32 111h-61c-37-34-5-104 43-134l50 23z"></path><path fill="#EDB526" d="M185 56l3-15 20-3c25 8 35 25 35 41-12-18-49-29-58-23z"></path><path fill="#E62117" d="M190 34c8-28 40-42 68-29 18 9 36 19 50 32 10 9 14 23 16 37L187 46l3-12z"></path><path fill="#8E24AA" d="M292 168c0 0 0 201 0 241s20 98 91 85l-16-54c-22 12-31-17-31-37 0-20 0-108 0-137S325 200 292 168z"></path><path fill="#F7CB4D" d="M284 79c11-9 23-17 35-23 25-12 54 7 59 38v1c4 27-13 51-36 53-12 1-25 1-37 0-22-1-39-27-32-52v-1c2-6 6-12 11-16z"></path><path fill="#6A1B9A" d="M201 203s0 84-95 140l22 42s67-25 89-86-16-96-16-96z"></path><path fill="#BE2117" d="M224 54l-67-14c-10-2-13-15-5-21s18-6 26 0l46 35z"></path><circle fill="#4A148C" cx="129" cy="161" r="12"></circle><circle fill="#4A148C" cx="212" cy="83" r="7"></circle><circle fill="#4A148C" cx="189" cy="79" r="7"></circle><path fill="#F7CB4D" d="M383 493c11-3 19-8 25-13 7-10 4-16-5-20 8-9 2-22-8-18 1-1 1-2 1-3 3-9-9-15-15-8-3 4-8 7-13 9l15 53z"></path><path fill="#EDB526" d="M252 510c5 6 0 15-9 15h-87c-10 0-16-8-13-15 5-12 21-19 36-16l73 16z"></path><ellipse transform="rotate(19.126 278.35 14.787)" fill="#E62117" cx="278" cy="15" rx="9" ry="7"></ellipse><path fill="#F7CB4D" d="M341 510c5 6 0 15-9 15h-87c-10 0-16-8-13-15 5-12 21-19 36-16l73 16z"></path><path fill="#EDB526" d="M357 90c-12-19-35-23-55-11-19 12-25 32-13 52"></path><path fill="#E62117" d="M110 427l21-9c5-2 7-8 5-13l-42-94c-3-6-9-9-15-6l-11 5c-6 2-9 9-7 15l36 97c2 5 8 7 13 5z"></path><path fill="#B0BEC5" d="M37 278l41-17c11-4 22-5 33-1 5 2 10 4 14 6 6 3 4 11-3 11-9 0-18 1-26 3l2 12c1 6-2 11-8 13l-36 15c-5 2-10 1-14-2l-9-7-2 17c0 2-2 4-4 5l-3 1c-3 1-7 0-8-3L1 300c-1-3 0-7 4-9l4-2c2-1 5 0 7 1l12 10 1-11c0-5 3-9 8-11z"></path><path fill="#F7CB4D" d="M103 373c10 2 14 10 8 19 6-1 10 4 10 9 0 3-3 6-6 7l-26 11c-2 1-5 1-8 0-6-3-7-9-2-16-7-1-13-9-6-17-8-1-12-8-8-15l3-3 23-11c9-4 19 8 12 16z"></path><ellipse transform="rotate(173.3 233.455 334.51)" fill="#8E24AA" cx="234" cy="335" rx="32" ry="46"></ellipse></svg></div>
+            </div>
+            <div class="verificado">
+                <h2 style="font-size: 35px;" > Tu contrato fue verificado felicidades!</h2>
+                <div style="width: 400px;"><svg id="monkey" viewBox="0 0 490 525"><path fill="#6A1B9A" d="M325 85c1 12-1 25-5 38-8 29-31 52-60 61-26 8-54 14-81 18-37 6-26-37-38-72l-4-4c0-17-9-33 4-37l33-4c9-2 9-21 11-30 1-7 3-14 5-21 8-28 40-42 68-29 18 9 36 19 50 32 13 11 16 31 17 48z"></path><path fill="none" stroke="#6A1B9A" stroke-width="24" stroke-linecap="round" stroke-miterlimit="10" d="M431 232c3 15 21 19 34 11 15-9 14-30 5-43-12-17-38-25-59-10-23 18-27 53-21 97s1 92-63 108"></path><path fill="#6A1B9A" d="M284 158c35 40 63 85 86 133 24 52-6 113-62 123-2 0-4 1-6 1-53 9-101-33-101-87V188l83-30z"></path><path fill="#F7CB4D" d="M95 152c-3-24 13-57 46-64l27-5c9-2 16-19 17-28l3-15 20-3c44 14 42 55 18 69 22 0 39 26 32 53-5 18-20 32-39 36-13 3-26 5-40 8-50 8-80-14-84-51z"></path><path fill="#6A1B9A" d="M367 392c-21 18-77 70-25 119h-61c-27-29-32-69 1-111l85-8z"></path><path fill="#6A1B9A" d="M289 399c-21 18-84 62-32 111h-61c-37-34-5-104 43-134l50 23z"></path><path fill="#EDB526" d="M185 56l3-15 20-3c25 8 35 25 35 41-12-18-49-29-58-23z"></path><path fill="#E62117" d="M190 34c8-28 40-42 68-29 18 9 36 19 50 32 10 9 14 23 16 37L187 46l3-12z"></path><path fill="#8E24AA" d="M292 168c0 0 0 201 0 241s20 98 91 85l-16-54c-22 12-31-17-31-37 0-20 0-108 0-137S325 200 292 168z"></path><path fill="#F7CB4D" d="M284 79c11-9 23-17 35-23 25-12 54 7 59 38v1c4 27-13 51-36 53-12 1-25 1-37 0-22-1-39-27-32-52v-1c2-6 6-12 11-16z"></path><path fill="#6A1B9A" d="M201 203s0 84-95 140l22 42s67-25 89-86-16-96-16-96z"></path><path fill="#BE2117" d="M224 54l-67-14c-10-2-13-15-5-21s18-6 26 0l46 35z"></path><circle fill="#4A148C" cx="129" cy="161" r="12"></circle><circle fill="#4A148C" cx="212" cy="83" r="7"></circle><circle fill="#4A148C" cx="189" cy="79" r="7"></circle><path fill="#F7CB4D" d="M383 493c11-3 19-8 25-13 7-10 4-16-5-20 8-9 2-22-8-18 1-1 1-2 1-3 3-9-9-15-15-8-3 4-8 7-13 9l15 53z"></path><path fill="#EDB526" d="M252 510c5 6 0 15-9 15h-87c-10 0-16-8-13-15 5-12 21-19 36-16l73 16z"></path><ellipse transform="rotate(19.126 278.35 14.787)" fill="#E62117" cx="278" cy="15" rx="9" ry="7"></ellipse><path fill="#F7CB4D" d="M341 510c5 6 0 15-9 15h-87c-10 0-16-8-13-15 5-12 21-19 36-16l73 16z"></path><path fill="#EDB526" d="M357 90c-12-19-35-23-55-11-19 12-25 32-13 52"></path><path fill="#E62117" d="M110 427l21-9c5-2 7-8 5-13l-42-94c-3-6-9-9-15-6l-11 5c-6 2-9 9-7 15l36 97c2 5 8 7 13 5z"></path><path fill="#B0BEC5" d="M37 278l41-17c11-4 22-5 33-1 5 2 10 4 14 6 6 3 4 11-3 11-9 0-18 1-26 3l2 12c1 6-2 11-8 13l-36 15c-5 2-10 1-14-2l-9-7-2 17c0 2-2 4-4 5l-3 1c-3 1-7 0-8-3L1 300c-1-3 0-7 4-9l4-2c2-1 5 0 7 1l12 10 1-11c0-5 3-9 8-11z"></path><path fill="#F7CB4D" d="M103 373c10 2 14 10 8 19 6-1 10 4 10 9 0 3-3 6-6 7l-26 11c-2 1-5 1-8 0-6-3-7-9-2-16-7-1-13-9-6-17-8-1-12-8-8-15l3-3 23-11c9-4 19 8 12 16z"></path><ellipse transform="rotate(173.3 233.455 334.51)" fill="#8E24AA" cx="234" cy="335" rx="32" ry="46"></ellipse></svg></div>
+            </div>
+            <div class="contrato">
+                <div class="wrapper">
+                    <div class="centeredOverlay">
+                        <div class="loader3"></div>
+                        <div style="height: 20px;" ></div>
+                        <h2 class="cargando"> Espera un momento, tú contrato está cargando </h2>
+                    </div>
+                    <div class="titulo-contrato">
+                        <h2>Contrato de <strong class="titular"> ELIGE UN CONTRATO </strong></h2>
+                        <div class="progress-container">
+                          <div class="progress-bar" id="barraDeProgreso"></div>
+                        </div>
+                    </div>                  
+                <meta charset="UTF-8">                                
+                <h1>CONTRATO DE PRESTACIÓN DE SERVICIOS DE EVENTOS SOCIALES</h1> 
+                    <h2> Tipo de evento: <span class="evento"> _____ </span> Correo del Cliente: <span class="correo"> _____ </span> </h2>
+                <p>QUE CELEBRAN POR UNA PARTE PROVEEDOR REPRESENTADA POR W&P A QUIEN EN LO SUCESIVO SE LE DENOMINARA “EL PRESTADOR DEL SERVICIO”, <br>
+                    Y POR LA OTRA 
+                    <br>
+                    <span class="nombre" > _____</span>
+                    <br>
+                    A  QUIEN  EN  LO  SUCESIVO  SE  LE DENOMINARA “EL CONSUMIDOR” 
+                    <br> AL TENOR DE LAS SIGUIENTES DECLARACIONES Y CLÁUSULAS:</p>
+                <h2> I.	Declara “EL PRESTADOR DEL SERVICIO”: </h2> 
+                <p> A)	Que su domicilio se encuentra ubicado en la Ciudad de México con número telefónico 5560933305.
+                    <br>B)	Que cuenta con la capacidad, infraestructura, servicios y recursos necesarios para dar cabal cumplimiento a las obligaciones contenidas en el presente contrato.</br>
+                    <br>C)	Que   cuenta   con   personal   capacitado   y   responsable   para   atender   las   quejas   y reclamaciones que se originen de la prestación del servicio o del bien adquirido, para lo cual se señala el teléfono 5560933305, con un horario de atención al público de las 9:00 horas a las 16:00 horas, los días lunes a viernes.</br>
+                </p>
+                <h2> II. DECLARA “EL CONSUMIDOR”: </h2> 
+                <p> A)	Llamarse como ha quedado plasmado en el proemio de este contrato.
+                    <br>B)	Que es su deseo obligarse en los términos y condiciones del presente contrato, manifestando que cuenta con la capacidad legal para la celebración de este contrato.</br>
+                    <br>C)	Que su domicilio se encuentra ubicado en 
+                    <br>
+                    <span class="domicilio"> _____ </span> <br>
+                    y estar inscrito en el Registro de Población bajo el CURP: <span class="curp1"> _____ </span> 
+                </p> 
+                <h2> CLAUSULAS </h2>
+                <p> <strong>PRIMERA.</strong> El objeto del presente contrato es la prestación de servicios para celebración de un <span class="evento"> _____ </span> donde <span class="nombre" > _____</span> sera el representante de dicho evento
+                    .El cual se llevará a cabo el día <span class="date"> _____ </span>  en el salón con el nombre de: <span class="location"> ______ </span>.
+                    <br>EL PRESTADOR DEL SERVICIO podrá cobrar una cantidad adicional, debidamente prevista en el presupuesto, en el caso de que el evento prolongue su duración y/o el número de invitados exceda del estipulado.</br>
+                </p>
+                <p> <strong>SEGUNDA.</strong> Independientemente de la entrega del anticipo, EL PRESTADOR DEL SERVICIO deberá entregar a EL CONSUMIDOR la factura o comprobante que ampare el pago de los servicios contratados, en la que se hará constar detalladamente el nombre y precio de cada uno de los servicios proporcionados, esto con la finalidad de que EL CONSUMIDOR pueda verificarlos en detalle. </p>
+                <p> <strong>TERCERA.</strong> EL CONSUMIDOR se obliga a depositar una cantidad equivalente al 10% del precio estipulado para garantizar el pago de servicios excedentes, imprevistos, o daños o perjuicios en su caso. Dicho depósito será devuelto al CONSUMIDOR si al finalizar el evento no se verifico ninguno de esos supuestos. </p>
+                <p> <strong>CUARTA.</strong> EL CONSUMIDOR se obliga a depositar una cantidad equivalente al 10% del precio estipulado para garantizar el pago de servicios excedentes, imprevistos, o daños o perjuicios en su caso. Dicho depósito será devuelto al CONSUMIDOR si al finalizar el evento no se verifico ninguno de esos supuestos. </p>
+                <p> <strong>QUINTA.</strong> EL CONSUMIDOR cuenta con un plazo de cinco días hábiles posteriores a la firma del presente contrato para cancelar la operación sin responsabilidad alguna de su parte, en cuyo caso EL PRESTADOR DEL SERVICIO se obliga a reintegrar todas las cantidades que EL CONSUMIDOR le haya entregado. 
+                    Si la cancelación se realiza después de los cinco días hábiles antes señalados, EL CONSUMIDOR deberá indemnizar a EL PRESTADOR DEL SERVICIO por los gastos comprobables hasta por un 20% del precio total de la operación que hubiese realizado en ejecución de la prestación del servicio. 
+                </p>
+                <p> <strong>SEXTA.</strong> EL CONSUMIDOR se obliga a cumplir con las disposiciones reglamentarias que rijan el inmueble y a procurar que los asistentes al evento observen la misma conducta. Para tal efecto EL PRESTADOR DEL SERVICIO entregará a la firma del presente contrato a EL CONSUMIDOR una copia del reglamento respectivo en donde se fijen las disposiciones reglamentarias. </p>
+                <p> <strong>SEPTIMA.</strong> En caso de que EL PRESTADOR DEL SERVICIO incurra en incumplimiento del presente contrato por causas imputables a él se obliga a elección de EL CONSUMIDOR:
+                    <br>A)	A contratar por su cuenta a otra empresa que este en posibilidades de realizar la prestación del servicio en las condiciones estipuladas por EL CONSUMIDOR. El costo adicional, que en su caso, se genere será absorbido por EL PRESTADOR DEL SERVICIO, o bien</br>
+                    <br>B)	A reintentar las cantidades que se le hubieren entregado y a pagar una pena convencional del 20% del precio total del servicio.</br>
+                </p>
+                <p> <strong>OCTAVA.</strong> El servicio de resguardo de objetos personales, será gratuito para los asistentes del evento, EL PRESTADOR DEL SERVICIO se obliga a recibir dichos objetos o bienes y a entregarlos cuando los asistentes se los soliciten previa entrega de la contraseña correspondiente.
+    
+                    EL PRESTADOR DEL SERVICIO responderá por la pérdida, menoscabo o daño que por su malicia o negligencia sufrieren las cosas depositadas. En estos casos se indemnizará a EL CONSUMIDOR o a sus invitados de la siguiente manera:
+                    
+                    <br>A)	En caso de daño parcial, hasta con un 50% del valor del objeto que su dueño pueda demostrar fehacientemente o que las partes establezcan de común acuerdo.</br>
+                    <br>B)	En caso de daño total que hicieran inservible el bien depositado, EL PRESTADOR DEL SERVICIO se obliga a entregar a su dueño un bien de la misma especie y calidad o a indemnizarlo hasta con un 100% del valor del objeto que su dueño pueda demostrar fehacientemente, o conforme al monto que las partes de común acuerdo establezcan.</br>
+                    <br>C)	En caso de robo o pérdida del bien depositado, EL PRESTADOR DEL SERVICIO indemnizará a su dueño con una cantidad equivalente al 100% del valor del bien de que se trate o conforme al monto que las partes de común acuerdo establezcan.</br>
+                </p>
+                <p> <strong>NOVENA.</strong> Las partes podrán acordar que EL CONSUMIDOR, contrate libremente servicios específicos relacionados con el evento social con otros prestadores de servicios por así convenir a sus intereses, por lo que en caso de actualizarse dicho supuesto EL CONSUMIDOR exime de toda responsabilidad a EL PRESTADOR DEL SERVICIO en lo que respecta a dichos servicios en específico. </p>
+                <p> <strong>DECIMA.</strong> La Procuraduría Federal del Consumidor es competente en la vía administrativa para resolver cualquier controversia que se suscite sobre la interpretación o cumplimiento del presente contrato. Sin prejuicio de lo anterior, las partes se someten a la jurisdicción que pudiera corresponderles, por razón de sus domicilios presentes o futuros o por cualquier otra razón. </p>
+                <p> Leído que fue por las partes el contenido del contrato y sabedoras de su alcance legal, lo firman:  </p>
+                <h3> <span class="nombre" > _____</span> _________FIRMA DEL "CONSUMIDOR" </h3>
+                            <h1>Foto del INE: </h1>            
+                            <img id="ine-1" src="" width="600px" alt="aqui va el ine1">
+                            <br>
+                            <br>
+                            <h1>Foto de su comprobante de domicilio:</h1>
+                            <img id="domicilio" src="" width="600px" alt="aqui va el domicilio">
+                </div>
+                <style> strong,span{color: red; font-size: 28px; font-weight: 700; } p {font-size: 18px;} html {font-family: Arial, Helvetica, sans-serif;} html {text-align: justify;} </style>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../static/js/mis_contratos_general_datatables.js"></script>
+</body>
+</html>
+{% endblock %}
+
+                        <!-- <h1>Foto del INE del conyugue1: </h1>            
+                        <img src="http://127.0.0.1:5000/static/img/uploads/{{filename}}" width="600px" alt="">
+                        <br>
+                        <h1>Foto del INE del conyugue2: </h1>            
+                        <img src="http://127.0.0.1:5000/static/img/uploads/{{filename2}}" width="600px" alt="">
+                        <br>
+                        <div style="height: 300px;" > </div>
+                        <h1>Foto de su comprobante de domicilio:</h1>
+                        <img src="http://127.0.0.1:5000/static/img/uploads/{{filename3}}" width="600px" alt=""> -->

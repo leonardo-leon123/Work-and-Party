@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tittle %} Eventos {% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/landing_evento.css">
+</head>
+<body>
+    <div class="container-box">
+        <a href ="" id = "btn_eventoBoda">
+            <div class="box">
+                <img src="../static/img/blog/Boda.svg" alt="">
+                <b><h2>Bodas</h2></b>
+                <div class="container-p">
+                    <p>Si das click aquí puedes ver los contratos o las encuestas de este evento</p>
+                </div>
+            </div>
+        </a>
+        <a href = "" id = "btn_eventoTec">
+            <div class="box">
+                <img src="../static/img/blog/EventosTec.svg" alt="">
+                <b><h2>Eventos Técnologicos</h2></b>
+                <div class="container-p">
+                    <p>Si das click aquí puedes ver los contratos o las encuestas de este evento</p>
+                </div>
+            </div>
+        </a>
+        <a href = "" id = "btn_eventoXv">
+            <div class="box">
+                <img src="../static/img/blog/XvAños.svg" alt="">
+                <b><h2>XV años</h2></b>
+                <div class="container-p">
+                    <p>Si das click aquí puedes ver los contratos o las encuestas de este evento</p>
+                </div>
+            </div>
+        </a>
+        <a href = "" id = "btn_eventoOtro">
+            <div class="box">
+                <img src="../static/img/blog/Otros.svg" alt="">
+                <b><h2>Otros</h2></b>
+                <div class="container-p">
+                    <p>Si das click aquí puedes ver los contratos o las encuestas de este evento</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/js/landing_evento.js"></script>
+</body>
+</html>
+{% endblock %}
